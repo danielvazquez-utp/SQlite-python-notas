@@ -24,6 +24,13 @@ def fetch_data(conn, table_name):
     cursor.execute(f'SELECT * FROM {table_name}')
     return cursor.fetchall()
 
+def fetch_data_with_condition(conn, table_name, condition):
+    """Recupera datos de una tabla con una condición específica."""
+    cursor = conn.cursor()
+    print(f'SELECT * FROM {table_name} WHERE {condition}')
+    cursor.execute(f'SELECT * FROM {table_name} WHERE {condition}')
+    return cursor.fetchall()
+
 def close_connection(conn):
     """Cierra la conexión a la base de datos."""
     conn.close()
